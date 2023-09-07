@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class ProductService {
 
-    Set<Product> products = new HashSet<>();
+    List<Product> products = new ArrayList<>();
 
     //METHOD TO ADD PRODUCT
     public void addProduct(Product product){
@@ -13,7 +13,7 @@ public class ProductService {
     }
 
     //METHOD TO GET ALL PRODUCTS
-    public Set<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
@@ -28,4 +28,23 @@ public class ProductService {
         return null;
     }
 
+    public Product getSpecificType(String type) {
+
+        for (Product p : products)
+            if (p.getType().equalsIgnoreCase(type)){
+                return p;
+            }
+        return null;
+    }
+
+    public List<Product> getSpecificText(String txt) {
+        List<Product> products1 = new ArrayList<>();
+        //iterate through the list
+        for (Product prods : products){
+            if (prods.getName().contains(txt) || prods.getType().equalsIgnoreCase(txt) || prods.getPlace().equalsIgnoreCase(txt)){
+                products1.add(prods);
+            }
+        }
+        return products1;
+    }
 }

@@ -18,7 +18,7 @@ public class Main {
         service.addProduct(new Product("Amazon Echo Show 10", "Amazon Alexa", "USA", 2023));
         service.addProduct(new Product("Nintendo Switch Pro", "Custom OS", "Japan", 2023));
 
-//        Set<Product> list = service.getProducts();
+//        List<Product> list = service.getProducts();
 //        for (Product pr : list){
 //            System.out.println(pr + " ");
 //        }
@@ -28,6 +28,20 @@ public class Main {
 //            System.out.println(itr.next() + " ");
 //        }
 
+        System.out.println("_ _".repeat(30));
+        System.out.println("Searching by name: ");
         System.out.println(service.getSpecificProduct("lenovo ThinkPad X1 Carbon"));
+
+        System.out.println("_ _".repeat(30));
+        System.out.println("Searching by type: ");
+        System.out.println(service.getSpecificType("android"));
+
+        System.out.println("_ _".repeat(30));
+        System.out.println("Searching by a particular text: ");
+        List<Product> products = service.getSpecificText("MacOs");
+        for (Product prs : products){
+            System.out.println(prs);
+        }
+
     }
 }
